@@ -88,6 +88,7 @@ In this repository,
 - C++ source code in the `sim` folder,
 - C++ and SystemVerilog code in the `core_wrapper` folder, and
 - SystemVerilog patch in the `core_patch` folder
+
 are developed by [Naoki FUJIEDA](https://aitech.ac.jp/~dslab/nf/index.en.html).
 Copyright is reserved by Digital Systems Laboratory, Aichi Institute of Technoogy.
 These code partially includes contributions by Tatsuya MATSUKAWA, Kazuma MOTOHASHI,

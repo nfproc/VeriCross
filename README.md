@@ -90,6 +90,7 @@ VeriCross のバイナリは，必須のコマンドライン引数として，�
 - `sim` フォルダ中の C++ ソースコード，
 - `core_wrapper` フォルダ中の C++, SystemVerilog ソースコード，
 - `core_patch` フォルダ中の SystemVerilog パッチ
+
 は，[藤枝 直輝](https://aitech.ac.jp/~dslab/nf/) により開発され，愛知工業大学
 ディジタルシステム研究室が著作権を保有します．
 これらのソースコードの一部には，松川 達哉，本橋 一馬，杉山 皓星，岡部 匠悟 による
