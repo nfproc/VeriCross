@@ -1,0 +1,14 @@
+# benchmark input (not managed by Git)
+benchmark/input
+benchmark/vc_mibench_input.tgz
+
+# generated files
+benchmark/binary/*
+core_patched
+core_verilated/*
+eval/*.txt
+vericross
+
+# temporary files for VS Code Clangd Extension
+.cache
+compile_commands.json

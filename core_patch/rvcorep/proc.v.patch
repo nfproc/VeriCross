@@ -1,0 +1,27 @@
+--- ../rvcorep_org/proc.v	2026-04-23 18:25:08.000000000 +0900
++++ ../rvcorep/proc.v	2026-04-28 18:36:40.908604800 +0900
+@@ -228,16 +228,22 @@
+     reg [31:0] MaWb_wdata    = 0;
+     reg [31:0] MaWb_ir       = 0; // just for verify
+ 
++    // VeriCross: Ecall Detection
++    wire Id_ecall = (IfId_ir == 32'h00000073);
++    wire Ma_ecall = (ExMa_ir == 32'h00000073);
++    wire ecall_stall = Id_ecall & IfId_v & IdEx_v;
++    wire ecall_flush = Ma_ecall & ExMa_v;
++
+     /****************************************************************************************/
+     reg r_RST = 1;
+     always @(posedge CLK) r_RST <= !RST_X | r_halt;
+ 
+     /**************************** IF  *******************************************************/
+     wire [31:0]  w_ir   = I_IN;
+-    wire w_stall = IdEx_luse;  // stall by load-use (luse) data dependency
++    wire w_stall = IdEx_luse | ecall_stall;  // stall by load-use (luse) data dependency or ecall
+ 
+     /***** compute the next cycle pc using branch prediction *****/
+-    wire w_bmis = ExMa_b & ((ExMa_b_rslt != 7'h00) ? ExMa_b_rslt_t1 : ExMa_b_rslt_t2);
++    wire w_bmis = (ExMa_b & ((ExMa_b_rslt != 7'h00) ? ExMa_b_rslt_t1 : ExMa_b_rslt_t2)) | ecall_flush;
+     wire [17:0] w_pc_true = {((ExMa_b_rslt != 7'h00) ? ExMa_tkn_pc[17:2]: ExMa_npc[17:2]), 2'b00};
+ 
+     reg  [27:0] r_btb=0;

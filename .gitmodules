@@ -1,0 +1,6 @@
+[submodule "kronos"]
+	path = kronos
+	url = https://github.com/nfproc/kronos.git
+[submodule "rvcorep"]
+	path = rvcorep
+	url = https://github.com/nfproc/rvcorep.git

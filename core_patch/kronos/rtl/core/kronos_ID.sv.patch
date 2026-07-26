@@ -1,0 +1,40 @@
+--- ../kronos_org/rtl/core/kronos_ID.sv	2026-04-22 20:26:11.000000000 +0900
++++ ../kronos/rtl/core/kronos_ID.sv	2026-04-28 18:53:09.076621100 +0900
+@@ -76,6 +76,7 @@
+ 
+ // Stall Condition
+ logic stall;
++logic ecall_stall;
+ 
+ // ============================================================
+ // Instruction Decoder
+@@ -289,14 +290,17 @@
+       case(funct3)
+         3'b000: begin // FENCE
+           // This is a NOP
+-          instr_valid = 1'b1;
++          if (funct7[6:3] == 4'd0 && rs1 == '0 && rd == '0)
++            instr_valid = 1'b1;
+         end
+         3'b001: begin // FENCE.I
+           // implementing fence.i as `j f1` (jump to pc+4) 
+           // as this will flush the pipeline and cause a fresh 
+           // fetch of the instructions after the fence.i instruction
+-          is_fencei = 1'b1;
+-          instr_valid = 1'b1;
++          if (IR[31:20] == 12'h000 && rs1 == '0 && rd == '0) begin
++            is_fencei = 1'b1;
++            instr_valid = 1'b1;
++          end
+         end
+       endcase // funct3
+     end
+@@ -440,6 +444,7 @@
+   end
+ end
+ 
+-assign fetch_rdy = (~decode_vld | decode_rdy) & ~stall;
++assign ecall_stall = (sysop == ECALL && decode_vld);
++assign fetch_rdy = (~decode_vld | decode_rdy) & ~stall & ~ecall_stall;
+ 
+ endmodule

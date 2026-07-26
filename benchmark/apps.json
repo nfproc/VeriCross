@@ -1,0 +1,58 @@
+{
+    "basicmath" : {
+        "dirname" : "basicmath",
+        "binname" : "basicmath_small",
+        "args" : ""},
+    "bitcount" : {
+        "dirname" : "bitcount",
+        "binname" : "bitcnts",
+        "args" : "75000"},
+    "CRC32" : {
+        "dirname" : "CRC32",
+        "binname" : "crc",
+        "args" : "large.pcm"},
+    "dijkstra" : {
+        "dirname" : "dijkstra",
+        "binname" : "dijkstra_small",
+        "args" : "input.dat"},
+    "jpeg_cjpeg" : {
+        "dirname" : "jpeg",
+        "binname" : "cjpeg",
+        "args" : "-dct int -progressive -opt -outfile output_small_encode.jpg input_small.ppm"},
+    "jpeg_djpeg" : {
+        "dirname" : "jpeg",
+        "binname" : "djpeg",
+        "args" : "-dct int -ppm -outfile output_small_decode.ppm input_small.jpg"},
+    "lame" : {
+        "dirname" : "lame",
+        "binname" : "lame",
+        "args" : "small.wav output_small.mp3"},
+    "patricia" : {
+        "dirname" : "patricia",
+        "binname" : "patricia",
+        "args" : "small.udp"},
+    "qsort" : {
+        "dirname" : "qsort",
+        "binname" : "qsort_small",
+        "args" : "input_small.dat"},
+    "sha" : {
+        "dirname" : "sha",
+        "binname" : "sha",
+        "args" : "input_small.asc"},
+    "stringsearch" : {
+        "dirname" : "stringsearch",
+        "binname" : "search_small",
+        "args" : ""},
+    "susan_corners" : {
+        "dirname" : "susan",
+        "binname" : "susan",
+        "args" : "input_small.pgm output_small_corners.pgm -c"},
+    "susan_edges" : {
+        "dirname" : "susan",
+        "binname" : "susan",
+        "args" : "input_small.pgm output_small_edges.pgm -e"},
+    "susan_smooth" : {
+        "dirname" : "susan",
+        "binname" : "susan",
+        "args" : "input_small.pgm output_small_smoothing.pgm -s"}
+}

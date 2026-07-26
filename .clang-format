@@ -1,0 +1,15 @@
+Language: Cpp
+BasedOnStyle: LLVM
+
+IndentWidth: 4
+ColumnLimit: 100
+
+AlignConsecutiveAssignments: Consecutive
+AlignConsecutiveDeclarations: Consecutive
+AllowShortBlocksOnASingleLine: Empty
+AllowShortFunctionsOnASingleLine: Inline
+BraceWrapping:
+  AfterFunction: true
+BreakBeforeTernaryOperators: false
+MaxEmptyLinesToKeep: 1
+SpaceAfterLogicalNot: true
